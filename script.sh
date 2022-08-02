@@ -1,20 +1,39 @@
-#!/bin/bash 
-set -eo pipefail 
- 
-greeting () { 
-  local _GITHUB_USER=$1
+#!/bin/bash
+set -eo pipefail
+greeting() {
+  local _GITHUB_USER="${1}"
   local _str="Hello, $_GITHUB_USER !"
-  echo $_str 
-  return $? 
-} 
- 
-greeting "StrategicFS" 
-RET=$? 
- 
-if [ ${RET} -ne 0 ] ; then 
-  echo 'ERR: Failed to give greeting' > /dev/stderr 
+  echo $_str
+  return $?
+}
+greeting "StrategicFS"
+RET=$?
+if [ ${RET} -ne 0 ] ; then
+  echo 'ERR: Failed to give greeting' > /dev/stderr
 else
-  echo 'DEBUG: Greeted the Github User' > /dev/stdout 
+  echo 'DEBUG: Greeted the Github User' > /dev/stdout
 fi
+
+
+# #!/bin/bash 
+# set -eo pipefail 
+ 
+# greeting () { 
+#   local _GITHUB_USER=$1
+#   local _str="Hello, $_GITHUB_USER !"
+#   echo $_str
+#   echo $?
+#   return $? 
+# } 
+ 
+# greeting "StrategicFS" 
+# echo $?
+# RET=$? 
+
+# if [ ${RET} -ne 0 ] ; then 
+#   echo 'ERR: Failed to give greeting' > /dev/stderr 
+# else
+#   echo 'DEBUG: Greeted the Github User' > /dev/stdout 
+# fi
 
 
